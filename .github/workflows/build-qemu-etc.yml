@@ -18,11 +18,11 @@ jobs:
       - name: Clone Repository
         uses: actions/checkout@v3
 
-      - name: Create etc
-        run: |
-          mkdir etc
-          cd etc
-          cp -r ../* .
-
       - name: Tar etc
-        run: tar -cvf etc.tar etc 
+        run: tar -cvf etc.tar .
+      
+      - name: Upload etc
+        uses: actions/upload-artifact@v3
+        with:
+          name: etc
+          path: etc.tar
