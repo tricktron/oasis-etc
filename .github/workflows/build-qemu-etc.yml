@@ -21,7 +21,8 @@ jobs:
       - name: Create etc
         run: |
           mkdir etc
-          cp -r . etc/
+          cd etc
+          cp -r ../* .
 
       - name: Tar etc
         run: tar -cvf etc.tar etc 
