@@ -1,0 +1,27 @@
+name: Build QEMU etc
+
+on:
+  push:
+    branches: [ qemu-initramfs ]
+  pull_request:
+    branches: [ main ]
+  workflow_dispatch:
+
+env:
+  FORCE_COLOR: 2
+
+jobs:
+  build-etc:
+    name: Build QEMU etc 
+    runs-on: ubuntu-22.04
+    steps:
+      - name: Clone Repository
+        uses: actions/checkout@v3
+
+      - name: Create etc
+        run: |
+          mkdir etc
+          cp -r . etc/
+
+      - name: Tar etc
+        run: tar -cvf etc.tar etc 
