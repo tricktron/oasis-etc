@@ -11,14 +11,6 @@ mkdir /dev/pts
 mkdir /dev/shm
 mount -a
 
-insmod input
-insmod mousedev
-insmod usbcore
-insmod xhci_hcd
-insmod usbhid
-insmod hid_generic
-insmod fuse 
-
 /libexec/applyperms
 /libexec/applyperms -d /etc
 
