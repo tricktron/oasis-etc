@@ -11,6 +11,14 @@ mkdir /dev/pts
 mkdir /dev/shm
 mount -a
 
+modprobe input
+modprobe mousedev
+modprobe usbcore
+modprobe xhci_hcd
+modprobe usbhid
+modprobe hid_generic
+modprobe fuse 
+
 /libexec/applyperms
 /libexec/applyperms -d /etc
 
