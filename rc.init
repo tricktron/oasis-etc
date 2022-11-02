@@ -11,8 +11,11 @@ find /sys -name modalias | xargs sort -u | xargs -n 1 modprobe -q
 
 modprobe usbcore
 modprobe input
-modprobe hid
+modprobe usbhid
 modprobe mousedev
+modprobe hid_generic
+modprobe xhci_hcd
+modprobe fuse
 
 mount -t devtmpfs none /dev
 
