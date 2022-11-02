@@ -14,6 +14,9 @@ mount -a
 /libexec/applyperms
 /libexec/applyperms -d /etc
 
+# scan hardware and load needed kernel modules
+find /sys/ -name modalias | xargs sort -u | xargs -n 1 modprobe
+
 /etc/rc.local
 
 exec perpboot /etc/perp
