@@ -9,6 +9,11 @@ mount -t sysfs none /sys
 # scan hardware and load needed kernel modules
 find /sys -name modalias | xargs sort -u | xargs -n 1 modprobe -q
 
+modprobe usbcore
+modprobe input
+modprobe hid
+modprobe mousedev
+
 mount -t devtmpfs none /dev
 
 mkdir /dev/pts
