@@ -7,7 +7,7 @@ umask 022
 mount -t proc none /proc
 mount -t sysfs none /sys
 # scan hardware and load needed kernel modules
-find /sys -name modalias | xargs sort -u | xargs -n 1 modprobe -v -a
+find /sys -name modalias | xargs sort -u | xargs -n 1 modprobe -q
 
 mount -t devtmpfs none /dev
 
