@@ -27,4 +27,6 @@ find /sys -name modalias | xargs sort -u | xargs -n 1 modprobe
 
 /etc/rc.local
 
+find /sys -name modalias | xargs sort -u | xargs -n 1 modprobe
+
 exec perpboot /etc/perp
