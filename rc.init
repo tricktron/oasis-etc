@@ -11,19 +11,18 @@ mkdir /dev/pts
 mkdir /dev/shm
 mount -a
 
-modprobe usbcore
-modprobe usbhid
-modprobe mousedev
-modprobe hid_generic
-modprobe xhci_hcd
-modprobe fuse
-
-# scan hardware and load needed kernel modules
-find /sys -name modalias | xargs sort -u | xargs -n 1 modprobe
-
 /libexec/applyperms
 /libexec/applyperms -d /etc
 
+modprobe fuse
+
 /etc/rc.local
+
+modprobe usbcore
+modprobe mousedev
+modprobe hid
+
+# scan hardware and load needed kernel modules
+find /sys -name modalias | xargs sort -u | xargs -n 1 modprobe
 
 exec perpboot /etc/perp
