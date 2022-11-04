@@ -22,11 +22,6 @@ modprobe hid_generic
 modprobe xhci_hcd
 modprobe hid
 
-# scan hardware and load needed kernel modules
-find /sys -name modalias | xargs sort -u | xargs -n 1 modprobe
-
 /etc/rc.local
-
-find /sys -name modalias | xargs sort -u | xargs -n 1 modprobe
 
 exec perpboot /etc/perp
