@@ -15,14 +15,16 @@ mount -a
 /libexec/applyperms -d /etc
 
 modprobe fuse
-
-/etc/rc.local
-
 modprobe usbcore
+modprobe usbhid
 modprobe mousedev
+modprobe hid_generic
+modprobe xhci_hcd
 modprobe hid
 
 # scan hardware and load needed kernel modules
 find /sys -name modalias | xargs sort -u | xargs -n 1 modprobe
+
+/etc/rc.local
 
 exec perpboot /etc/perp
