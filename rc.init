@@ -14,13 +14,20 @@ mount -a
 # scan hardware and load needed kernel modules
 find /sys -name modalias | xargs sort -u | xargs -n 1 modprobe
 
+# debug loaded modules
+lsmod > /etc/loaded-modules.txt
+
+# load usb modules manually
+modprobe fuse
+modprobe usbcore
+modprobe usbhid
+modprobe mousedev
+modprobe hid_generic
+modprobe xhci_hcd
+
 /libexec/applyperms
 /libexec/applyperms -d /etc
 
-modprobe fuse
-
 /etc/rc.local
-
-find /sys -name modalias | xargs sort -u | xargs -n 1 modprobe
 
 exec perpboot /etc/perp
