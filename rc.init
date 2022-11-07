@@ -14,9 +14,6 @@ mount -a
 # scan hardware and load needed kernel modules
 find /sys -name modalias | xargs sort -u | xargs -n 1 modprobe
 
-# debug loaded modules
-lsmod > /etc/loaded-modules.txt
-
 # load usb modules manually
 modprobe fuse
 modprobe usbcore
