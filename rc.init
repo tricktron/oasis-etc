@@ -11,16 +11,15 @@ mkdir /dev/pts
 mkdir /dev/shm
 mount -a
 
-# scan hardware and load needed kernel modules
-find /sys -name modalias | xargs sort -u | xargs -n 1 modprobe
-
-# load usb modules manually
-modprobe fuse
-modprobe usbcore
+# load usb keyboard and mouse modules manually
 modprobe usbhid
 modprobe mousedev
 modprobe hid_generic
 modprobe xhci_hcd
+modprobe fuse
+
+# scan hardware and load needed kernel modules
+find /sys -name modalias | xargs sort -u | xargs -n 1 modprobe -b
 
 /libexec/applyperms
 /libexec/applyperms -d /etc
