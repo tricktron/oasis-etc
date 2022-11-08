@@ -30,4 +30,7 @@ find /sys -name modalias | xargs sort -u | xargs -n 1 modprobe -b
 
 /etc/rc.local
 
+# scan hardware and load needed kernel modules
+find /sys -name modalias | xargs sort -u | xargs -n 1 modprobe -b
+
 exec perpboot /etc/perp
