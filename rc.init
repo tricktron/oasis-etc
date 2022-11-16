@@ -16,9 +16,4 @@ mount -a
 
 /etc/rc.local
 
-install -dv -m 0755 /nix /nix/var /nix/var/log /nix/var/log/nix /nix/var/log/nix/drvs /nix/var/nix{,/db,/gcroots,/profiles,/temproots,/userpool,/daemon-socket} /nix/var/nix/{gcroots,profiles}/per-user
-install -dv -g nixbld -m 1775 /nix/store
-echo "https://nixos.org/channels/nixpkgs-unstable nixpkgs" > /root/.nix-channels
-nix-store --init
-
 exec perpboot /etc/perp
