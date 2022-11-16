@@ -2,7 +2,7 @@ name: Build QEMU etc
 
 on:
   push:
-    branches: [ qemu-initramfs ]
+    branches: [ qemu-initramfs, f-qemu-nix ]
   pull_request:
     branches: [ main ]
   workflow_dispatch:
