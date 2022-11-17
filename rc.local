@@ -13,4 +13,5 @@ install -d -m 0755 /nix/var /nix/var/log /nix/var/log/nix /nix/var/log/nix/drvs 
 chgrp nixbld /nix/store
 chmod 1775 /nix/store
 echo "https://nixos.org/channels/nixpkgs-unstable nixpkgs" > /root/.nix-channels
-nix-store --load-db < /.reginfo
+/nix/store/*nix*/bin/nix-store --load-db < /.reginfo
+/nix/store/*nix*/bin/nix-env -i /nix/store/*nix*
