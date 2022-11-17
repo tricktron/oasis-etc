@@ -2,7 +2,7 @@ name: Build oasis zen etc
 
 on:
   push:
-    branches: [ f-zen-initramfs ]
+    branches: [ f-zen-nix ]
   pull_request:
     branches: [ main ]
   workflow_dispatch:
