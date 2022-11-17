@@ -9,9 +9,8 @@ chmod 666 /dev/fuse &
 
 wait
 
-install -d -m 0755 /nix /nix/var /nix/var/log /nix/var/log/nix /nix/var/log/nix/drvs /nix/var/nix{,/db,/gcroots,/profiles,/temproots,/userpool,/daemon-socket} /nix/var/nix/{gcroots,profiles}/per-user
-install -d -g nixbld -m 1775 /nix/store
+install -d -m 0755 /nix/var /nix/var/log /nix/var/log/nix /nix/var/log/nix/drvs /nix/var/nix{,/db,/gcroots,/profiles,/temproots,/userpool,/daemon-socket} /nix/var/nix/{gcroots,profiles}/per-user
+chgrp nixbld /nix/store
+chmod 1775 /nix/store
 echo "https://nixos.org/channels/nixpkgs-unstable nixpkgs" > /root/.nix-channels
-readlink -f /bin/nix | xargs dirname | xargs mkdir -p
-mv /tmp/nix $(readlink -f /bin/nix)
 nix-store --init
