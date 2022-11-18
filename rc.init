@@ -11,6 +11,23 @@ mkdir /dev/pts
 mkdir /dev/shm
 mount -a
 
+# init nix
+/etc/init-nix.sh
+
+# load usb keyboard and mouse modules manually
+modprobe usbhid
+modprobe mousedev
+modprobe hid_generic
+modprobe xhci_hcd
+modprobe fuse
+
+# hd audio codecs needed for probing
+modprobe snd_hda_codec_realtek
+modprobe snd_hda_codec_hdmi
+
+# scan hardware and load needed kernel modules
+find /sys -name modalias | xargs sort -u | xargs -n 1 modprobe -b
+
 /libexec/applyperms
 /libexec/applyperms -d /etc
 
