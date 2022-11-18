@@ -1,0 +1,4 @@
+#!/bin/rc
+path=/bin:/nix/var/nix/profiles/default/bin
+if(! ~ $1 start) exit
+NIX_SSL_CERT_FILE=/etc/ssl/cert.pem exec nix-daemon --daemon
