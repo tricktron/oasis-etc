@@ -9,7 +9,6 @@ chmod 1775 /nix/store
 echo "https://nixos.org/channels/nixpkgs-unstable nixpkgs" > /root/.nix-channels
 /nix/store/*nix*/bin/nix-store --load-db < /.reginfo
 /nix/store/*nix*/bin/nix-env -i /nix/store/*nix*
-perpctl A nix-daemon
 # end init nix
 
 hostname oasis &
