@@ -11,6 +11,9 @@ mkdir /dev/pts
 mkdir /dev/shm
 mount -a
 
+# init nix
+/etc/init-nix.sh
+
 # load usb keyboard and mouse modules manually
 modprobe usbhid
 modprobe mousedev
