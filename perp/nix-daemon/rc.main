@@ -1,3 +1,26 @@
-#!/bin/rc
-if(! ~ $1 start) exit
-NIX_SSL_CERT_FILE=/etc/ssl/cert.pem exec /nix/var/nix/profiles/default/bin/nix-daemon >[2=1]
+#!/bin/sh
+
+exec 2>&1
+
+TARGET=${1}
+SVNAME=${2:-nix-daemon}
+
+start() {
+  echo "*** ${SVNAME}: starting..."
+  NIX_SSL_CERT_FILE=/etc/ssl/cert.pem exec \
+    /nix/var/nix/profiles/default/bin/nix-daemon
+}
+
+reset() {
+  case $3 in
+    'exit' )
+        echo "*** ${SVNAME}: exited status $4" ;;
+    'signal' )
+        echo "*** ${SVNAME}: killed on signal $5" ;;
+    * ) 
+        echo "*** ${SVNAME}: stopped ($3)" ;;
+  esac 
+  exit 0
+}
+
+eval ${TARGET} "$@"
