@@ -11,6 +11,7 @@ mkdir /dev/pts
 mkdir /dev/shm
 mount -a
 
+ln -s /proc/self/fd /dev/fd
 # load usb keyboard and mouse modules manually
 modprobe usbhid
 modprobe mousedev
