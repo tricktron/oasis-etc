@@ -31,4 +31,7 @@ find /sys -name modalias | xargs sort -u | xargs -n 1 modprobe -b
 
 /etc/rc.local
 
+# generate host keys before activating sshd
+ssh-keygen -A
+
 exec perpboot /etc/perp
