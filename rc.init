@@ -11,9 +11,7 @@ mkdir /dev/pts
 mkdir /dev/shm
 mount -a
 
-# init nix
-/etc/init-nix.sh
-
+ln -s /proc/self/fd /dev/fd
 # load usb keyboard and mouse modules manually
 modprobe usbhid
 modprobe mousedev
@@ -35,5 +33,7 @@ find /sys -name modalias | xargs sort -u | xargs -n 1 modprobe -b
 
 # scan hardware and load needed kernel modules
 find /sys -name modalias | xargs sort -u | xargs -n 1 modprobe -b
+# generate host keys before activating sshd
+ssh-keygen -A
 
 exec perpboot /etc/perp
