@@ -1,7 +1,7 @@
 umask 022
 
 export ENV=/etc/kshrc
-export PATH=/bin:/nix/var/nix/profiles/default/bin:$HOME/.nix-profile/bin
+export PATH=/nix/var/nix/profiles/default/bin:$HOME/.nix-profile/bin:/bin
 export MANPATH=/share/man
 export PERP_BASE=/etc/perp
 export PAGER=cat
