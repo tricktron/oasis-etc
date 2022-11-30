@@ -31,7 +31,7 @@ find /sys -name modalias | xargs sort -u | xargs -n 1 modprobe -b
 
 /etc/rc.local
 
-# generate host keys before activating sshd
-ssh-keygen -A -f oasis
+# generate host key before activating sshd
+ssh-keygen -q -N "" -t ed25519 -b 256 -f /etc/ssh/oasis
 
 exec perpboot /etc/perp
