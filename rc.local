@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/rc
 
 sysctl -p /etc/sysctl.conf
 
