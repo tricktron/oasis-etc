@@ -4,6 +4,7 @@ path=/bin
 
 umask 022
 
+mount -t proc none /proc
 mount -t devtmpfs none /dev
 mkdir /dev/pts
 mkdir /dev/shm
