@@ -4,14 +4,13 @@ path=/bin
 
 umask 022
 
-mount -t proc none /proc
-mount -t devtmpfs none /dev
-
-mkdir /dev/pts
-mkdir /dev/shm
+mkdir -p /dev/pts
+mkdir -p /dev/shm
 mount -a
 
+# enable process substitution
 ln -s /proc/self/fd /dev/fd
+
 # load usb keyboard and mouse modules manually
 modprobe usbhid
 modprobe mousedev
@@ -23,7 +22,7 @@ modprobe fuse
 modprobe snd_hda_codec_realtek
 modprobe snd_hda_codec_hdmi
 
-# scan hardware and load needed kernel modules
+# scan hardware and load the remaining needed kernel modules
 find /sys -name modalias | xargs sort -u | xargs -n 1 modprobe -b
 
 /libexec/applyperms
@@ -32,6 +31,6 @@ find /sys -name modalias | xargs sort -u | xargs -n 1 modprobe -b
 /etc/rc.local
 
 # generate host keys before activating sshd
-ssh-keygen -A
+ssh-keygen -A -f oasis
 
 exec perpboot /etc/perp

@@ -1,3 +1,4 @@
+none /dev devtmpfs nosuid,noexec,relatime 0 0
 none /dev/pts devpts nosuid,noexec,relatime 0 0
 none /dev/shm tmpfs nodev,nosuid,noexec 0 0
 none /proc proc nodev,noexec,nosuid,relatime 0 0
