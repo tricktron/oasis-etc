@@ -4,8 +4,9 @@ path=/bin
 
 umask 022
 
-mkdir -p /dev/pts
-mkdir -p /dev/shm
+mount -t devtmpfs none /dev
+mkdir /dev/pts
+mkdir /dev/shm
 mount -a
 
 # enable process substitution
