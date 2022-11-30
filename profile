@@ -9,6 +9,7 @@ export EDITOR=ed
 export PS1='\$ '
 export XDG_RUNTIME_DIR=/tmp
 export NIX_SSL_CERT_FILE=/etc/ssl/cert.pem
+export NIX_REMOTE=daemon
 
 if [ -n "$SSH_CONNECTION" ] ; then
 	PS1=$(hostname)$PS1
