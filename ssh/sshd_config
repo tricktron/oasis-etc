@@ -1,3 +1,2 @@
 PermitRootLogin no
 Subsystem sftp /libexec/sftp-server
-HostKey /etc/ssh/oasis
